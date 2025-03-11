@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -5,7 +6,9 @@ import streamlit as st
 sns.set_theme(style='dark')
 
 # Load Data
-all_df = pd.read_csv('all_df.csv')
+file_path = os.path.join(os.path.dirname(__file__), 'all_df.csv')
+
+all_df = pd.read_csv(file_path)
 
 def change_dtype_object_to_datetime(df, column_name):
   for i in column_name:
